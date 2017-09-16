@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+    //question list
     var questions = [
         {
             question: "How old was Harry when he was invited to attend Hogwarts?",
@@ -62,7 +62,7 @@ $(document).ready(function(){
             image: "https://media.giphy.com/media/rnyV7YxcOTUcg/giphy.gif"
         }
     ];
-
+    //Game variables
     var correctAnswers = 0;
     var incorrectAnswers = 0;
     var unanswered = 0;
@@ -70,58 +70,71 @@ $(document).ready(function(){
     var timer = 10;
     var questionCount = 0;
     var runTimer;
+    //DOM variables
     var imageDiv = $("#main-image");
     var mainDialogue = $("#main-dialogue");
     var timerDialogue = $("#timer-dialogue");
     var qDiv = $("#questions");
 
-
+    //Game mechanics
+    // function for writing questions to DOM
     function createQuestion(){
-
+        //Change text on page
         mainDialogue.text(null);
         timer = 10;
         timerDialogue.text('You have ' + timer + " Seconds");
         imageDiv.attr('src', 'assets/images/parchment.jpg');
-
-
+        //Write question to Dom
         var currentQuestion = questions[questionCount];
         questionCount++;
 
         $("#question-image").attr("src", currentQuestion.image);
         $("#current-question").text(currentQuestion.question);
 
+        //Write answers to DOM
         for (var i = 0; i < 4; i++) {
             var answer = currentQuestion.answers[i].answer;
             $("#" + i).html('<h1>' + answer);
             $("#" + i).data(currentQuestion.answers[i]);
         };
     }
-
+    //Count down timer, serve new question when timer ends
     function countdown() {
             timerDialogue.text('You have ' + timer + " Seconds");
             timer--;
+        // if timer reaches zero, increase unanswered variable and serve new question
         if (timer === 0) {
+            // Handle scenario where timed out question was last question
             if (questionCount === questions.length) {
                 results();
             }
+            // increase count and move to next question
             else {
                 unanswered++;
                 createQuestion();
             }
         }
     }
-
-
+    // Run countdown every second while active
     function qTimer() {
         createQuestion();
         runTimer = setInterval(countdown, 1000);
     }
-
+    // Stop timer
     function clearTimer() {
         clearInterval(runTimer)
     }
-
-
+    // Show results
+    function results() {
+        clearInterval(runTimer);
+        qDiv.hide();
+        $("#results").show();
+        $("#correct").text(correctAnswers);
+        $("#incorrect").text(incorrectAnswers);
+        $("#unanswered").text(unanswered);
+        $("#timer-dialogue").text("You got " + correctAnswers / questions.length * 100 + "% right! Click on Voldemort to try again.");
+    }
+    //Reset game
     function setUp(){
         correctAnswers = 0;
         incorrectAnswers = 0;
@@ -134,17 +147,7 @@ $(document).ready(function(){
         qTimer();
 
     }
-
-    function results() {
-        clearInterval(runTimer);
-        qDiv.hide();
-        $("#results").show();
-        $("#correct").text(correctAnswers);
-        $("#incorrect").text(incorrectAnswers);
-        $("#unanswered").text(unanswered);
-        $("#timer-dialogue").text("You got " + correctAnswers / questions.length * 100 + "% right! Click on Voldemort to try again.");
-    }
-
+    //Start game by clicking image
     imageDiv.click(function() {
         if (!gameStarted) {
             gameStarted = true;
@@ -153,28 +156,31 @@ $(document).ready(function(){
         }
 
     });
-
+    // Game Play
+    // Click on answer
     $(".answer").click(function() {
         clearTimer();
+        // Determine whether correct answer was chosen
         var isCorrect = $(this).data().correct;
-
+        // If answer is correcct, increase correct answer variable
         if (isCorrect) {
             correctAnswers++;
-            console.log(correctAnswers);
         }
+        // If answer is incorrect, increase incrrect answer variable
         else {
             incorrectAnswers++
         }
-
+        // game over if all questions served
         if (questionCount === questions.length) {
             results();
         }
+        // next question
         else {
             qTimer();
         }
 
     });
-
+    // Start Over
     $("#results-image").click(function () {
         setUp()
     })

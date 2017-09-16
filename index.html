@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trivia Game</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <script src="assets/javascript/app.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Calligraffitti|Fondamento|Kavivanar" rel="stylesheet">
+
+</head>
+<body>
+
+<div id="main-div">
+
+    <img id="main-image" src='assets/images/envelope.png'>
+    <div class="dialogue">
+        <h1 id="main-dialogue">You've been invited to play Harry Potter Trivia!</h1>
+        <h1 id="timer-dialogue">
+        Open the envelope to start the game.</h1>
+    </div>
+
+    <div id="questions">
+        <img id="question-image" class="image">
+        <h1 id="current-question"></h1>
+
+        <ul id="answer-list">
+            <li id="0" class="answer"></li>
+            <li id="1" class="answer"></li>
+            <li id="2" class="answer"></li>
+            <li id="3" class="answer"></li>
+        </ul>
+    </div>
+
+    <div id="results" style="display: none">
+        <img id="results-image" src="https://media.giphy.com/media/Wrd8QwEkxh5Re/giphy.gif">
+
+        <br>
+        <ul id="results-list">
+            <li><h1>Correct Answers: <span id="correct"></span> </h1></li>
+            <li><h1>Incorrect Answers: <span id="incorrect"></span> </h1></li>
+            <li><h1>Unanswered Questions: <span id="unanswered"></span></h1> </li>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>

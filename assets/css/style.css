@@ -1,0 +1,250 @@
+/* 	
+	HTML/CSS Starter / 071312 BASE
+	Douglas Green / greeninteractive.com
+	Copyright 2012 Some rights reserved
+*/
+/* @group 
+
+RESET
+-------------------------------------- */
+body,
+ul, ol, li, dl, dt, dd,
+h1, h2, h3, h4, h5, h6,
+p, td, th, address, blockquote,
+pre, code,
+form, fieldset, legend, input, textarea {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+fieldset, img {
+    border: none;
+}
+
+input, textarea, select {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+address, cite {
+    font-style: normal;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+caption, th {
+    text-align: left;
+}
+
+a {
+    text-decoration: none;
+}
+
+section, article, header, footer, nav, aside, hgroup {
+    display: block;
+}
+
+/* @end */
+/* @group 
+
+TYPE
+-------------------------------------- */
+body {
+    font: 62.5%/2.4em 'Fondamento', 'Kavivanar', cursive;
+    width:100%;
+    height:100%;
+    background-color: burlywood;
+}
+
+h1 {
+    font-size: 2.4em;
+    line-height: 1.3em;
+}
+
+h2 {
+    font-size: 1.8em;
+    line-height: 1.333em;
+}
+
+h3, h4, h5, h6,
+dt, legend {
+    font-size: 1.4em;
+    line-height: 1.7143em;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+ul, ol {
+    margin-left: 4.5em;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+ul li ul {
+    margin-bottom: 0;
+}
+
+p, li, dd, td, th,
+address, blockquote,
+label, input, select, textarea {
+
+    line-height: 1.7143em;
+}
+
+p, address, blockquote, dd {
+    margin-bottom: 1.7143em;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+code, pre {
+    display: block;
+    font-size: 1.3em;
+    line-height: 1.846153846153846em;
+    margin-bottom: 1.846153846153846em;
+
+}
+
+code {
+    white-space: pre;
+}
+
+table, ul, ol, dl {
+    margin-bottom: 2.4em;
+}
+
+caption {
+    font-size: 1.2em;
+    line-height: 2em;
+}
+
+th {
+    font-weight: bold;
+}
+
+th, td {
+    width: 6em;
+}
+
+/* nested sizes relative to their parent */
+p code, code pre, pre code, li li, li p, td p, blockquote p {
+    font-size: 1em;
+}
+
+em, caption, cite, blockquote {
+    font-style: italic;
+}
+
+blockquote {
+    margin-left: 2em;
+    width: 30em;
+}
+
+blockquote span.author {
+    padding-right: 1em;
+    display: block;
+    text-align: right;
+}
+
+strong {
+    font-weight: bold;
+}
+
+abbr[title]:hover {
+    cursor: help;
+}
+
+a:link,
+a:active,
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+#main-image{
+    position: absolute;
+    left: 50%;
+    width: 700px;
+    height: 500px;
+    margin-top: 50px;
+    margin-left: -350px;
+}
+#question-image{
+    position: absolute;
+    left: 50%;
+    width: 300px;
+    margin-left: -150px;
+    margin-top: 120px;
+}
+
+#results-image{
+    position: absolute;
+    left: 50%;
+    width: 500px;
+    margin-left: -250px;
+    margin-top: 120px;
+}
+.dialogue {
+    position: absolute;
+    left: 50%;
+    width: 600px;
+    margin-top: 570px;
+    margin-left: -300px;
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    font-family: 'Fondamento', cursive;
+}
+
+
+#current-question{
+    position: absolute;
+    left: 50%;
+    margin-top: 310px;
+    margin-left: -200px;
+    width: 400px;
+    text-align: center;
+    float: left;
+}
+#answer-list, #results-list{
+    position: absolute;
+    left: 50%;
+    width: 500px;
+    margin-top: 370px;
+    margin-left: -250px;
+    text-align: center;
+    padding: 5px;
+}
+
+.answer {
+    padding: .5px;
+    z-index: 10;
+}
+
+#main-div{
+    background: url("../images/background.jpg") no-repeat;
+    position: absolute;
+    left:50%;
+    height: 700px;
+    width: 1000px;
+    margin: 50px;
+    margin-left: -500px;
+
+}
+/* @end */
